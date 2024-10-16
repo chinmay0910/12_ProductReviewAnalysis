@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 flex items-center justify-center h-screen">
+
+    <div class="bg-white shadow-lg rounded-lg p-8 w-80 text-center">
+        <h1 class="text-2xl font-bold text-green-600 mb-4">Login Successful!</h1>
+        <p class="text-gray-700 mb-4">Welcome to the application!</p>
+        <p class="text-gray-500">Your Ethereum address:</p>
+        <p id="userAddress" class="text-lg font-semibold text-gray-800 overflow-hidden"></p>
+        
+        <button onclick="logout()" class="mt-6 bg-red-600 text-white py-2 px-4 rounded hover:bg-red-500 transition">Logout</button>
+    </div>
+
+    <script>
+        // Function to display the user's address
+        function displayAddress() {
+            const userAddress = localStorage.getItem('token'); // Assuming the address is stored in localStorage
+            document.getElementById('userAddress').innerText = userAddress ? userAddress : 'Not available';
+        }
+
+        // Function to handle logout
+        function logout() {
+            localStorage.removeItem('token'); // Remove the token
+            localStorage.removeItem('userAddress'); // Remove the user's address
+            window.location.href = '/'; // Redirect to the login page
+        }
+
+        // Call the function to display the address when the page loads
+        window.onload = displayAddress;
+    </script>
+</body>
+</html>

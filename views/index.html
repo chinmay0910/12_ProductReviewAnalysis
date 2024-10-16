@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.1.umd.min.js"></script>
+</head>
+<body class="bg-gray-300 flex items-center justify-center h-screen">
+
+    <div class="relative mx-auto bg-gray-200 w-80 rounded-lg shadow-lg p-6">
+        <h2 class="text-center font-light text-3xl mt-2 text-gray-800">Login</h2>
+
+        <div class="pt-5">
+            <input type="text" placeholder="Username" name="Username" class="w-full mb-4 h-10 border border-gray-400 rounded-lg px-2 focus:border-blue-500" />
+            <input type="password" placeholder="Password" name="Password" class="w-full mb-4 h-10 border border-gray-400 rounded-lg px-2 focus:border-blue-500" />
+            <button class="w-full mb-4 h-10 bg-red-600 text-white text-lg font-light rounded-lg cursor-pointer transition-shadow duration-400 hover:shadow-md active:shadow-lg" type="button" onclick="signMessage()">Sign in using MetaMask</button>
+            <div id="p1" class="text-red-500 text-center"></div>
+        </div>
+
+        <div class="absolute top-0 left-0 right-0 h-1.5 rounded-t-lg bg-gradient-to-r from-green-500 to-yellow-500 via-blue-500 to-red-500"></div>
+    </div>
+
+    <script>
+        async function getNounce() {
+            const response = await fetch('/nounce');
+            const data = await response.json();
+            return data.nounce;
+        }
+
+        async function signMessage() {
+            const element = document.getElementById("p1");
+            try {
+                let token = window.localStorage.getItem("token");
+
+                if (token) {
+                    const response = await fetch('/verify', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': token
+                        }
+                    });
+
+                    let newresponse = await response.json();
+                    if (newresponse === "ok") {
+                        window.location.href = '/success';
+                    } else {
+                        window.localStorage.removeItem("token");
+                        element.innerHTML = "Token Expired, log in again to get a new Token !!!";
+                    }
+                } else {
+                    const nonce = await getNounce();
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+                    const signer = provider.getSigner();
+                    const address = await signer.getAddress();
+                    const message = `I am signing this message to prove my identity. Nonce: ${nonce}`;
+                    const signedMessage = await signer.signMessage(message);
+                    const data = { signedMessage, message, address };
+
+                    const response = await fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    token = await response.json();
+                    window.localStorage.setItem("token", token.token);
+
+                    const newResponse = await fetch('/verify', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `${token.token}`
+                        }
+                    });
+
+                    let answer = await newResponse.json();
+                    if (answer === "ok") {
+                        window.location.href = '/success';
+                    } else {
+                        element.innerHTML = "Invalid Token !!!";
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                element.innerHTML = "An error occurred. Please try again.";
+            }
+        }
+    </script>
+
+</body>
+</html>
