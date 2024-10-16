@@ -94,7 +94,7 @@ The application integrates with a **blockchain-based user login** system to ensu
     streamlit run final_code.py
     ```
 
-4. Open the application in your browser at `http://localhost:8501/`.
+4. Open the application in your browser at `https://reviewsentimentanalysis.streamlit.app/`.
 
 ## 🌟 Future Enhancements
 - **Multilingual Support**: Extend support for other languages by fine-tuning the BERT model for different language datasets.
