@@ -1,0 +1,14 @@
+Naive Bayes Algorithm:
+
+A simple probabilistic classifier based on Bayes' Theorem with the assumption that the features (words in this case) are independent.
+Suitable for text classification tasks, such as sentiment analysis, where it calculates the likelihood of a text belonging to a certain class (e.g., positive or negative sentiment).
+
+Bag-of-Words Model:
+
+A common technique for text vectorization in NLP, where text is represented as an unordered collection of words (without considering grammar or word order).
+Each unique word in the corpus becomes a feature, and its frequency (or presence) is used as the value for that feature, creating a fixed-length vector.
+
+Mock Labels for Sentiment:
+
+Since real data may not always be available, mock labels (e.g., predefined positive or negative tags) can be used for testing and training the model.
+Later, these can be replaced with actual sentiment labels (e.g., extracted from a labeled dataset) for a more realistic evaluation of model performance.
