@@ -1,95 +1,116 @@
-🛒 Product Review Sentiment Analysis Application
-📄 Overview
-This application performs sentiment analysis on product reviews using a deep learning model (BERT). Users can upload an Excel file with product reviews or ratings, and the sentiment of each review is analyzed and displayed. The app also provides insights through a sentiment distribution graph and highlights top positive and negative reviews.
+# 🛒 Product Review Sentiment Analysis Application
 
-It integrates with a blockchain-based user login system to ensure secure access. After logging in, users can analyze product reviews, receive recommendations, and export results.
+## 📄 Overview
+This application performs **sentiment analysis** on product reviews using a deep learning model (BERT). Users can upload an Excel file containing product reviews or ratings, and the sentiment of each review is analyzed and displayed. The app also provides insights through a sentiment distribution graph and highlights top positive and negative reviews.
 
-✨ Features
-🔐 Blockchain-based Login:
+The application integrates with a **blockchain-based user login** system to ensure secure access. After logging in, users can analyze product reviews, receive recommendations, and export results.
 
-A secure login page built with blockchain technology. Users authenticate via Metamask, ensuring decentralized and secure access.
-🧠 Sentiment Analysis Using Deep Learning (BERT):
+## ✨ Features
 
-Utilizes BERT for high-accuracy sentiment analysis, handling diverse product review data across multiple languages.
-📝 Natural Language Processing (NLP):
+1. **🔐 Blockchain-based Login**:
+   - Secure login via **Metamask** ensuring a decentralized and safe authentication process.
 
-NLP techniques are used for text tokenization and analysis. The BERT model ensures accurate sentiment prediction.
-📊 Interactive Sentiment Distribution Visualization:
+2. **🧠 Sentiment Analysis Using Deep Learning (BERT)**:
+   - **BERT** (Bidirectional Encoder Representations from Transformers) for high-accuracy sentiment analysis, handling a wide range of review data.
 
-Provides a dynamic bar chart using Plotly to display sentiment distribution (Very Positive, Positive, Neutral, Negative, Very Negative).
-⭐ Top Positive and Negative Reviews:
+3. **📝 Natural Language Processing (NLP)**:
+   - Tokenization and preprocessing of review text using NLP techniques to extract patterns and insights.
 
-Highlights the top 2 positive and negative reviews, offering a quick overview of the best and worst feedback.
-✅ Final Recommendation:
+4. **📊 Interactive Sentiment Distribution Visualization**:
+   - Dynamic sentiment distribution graph (Very Positive, Positive, Neutral, Negative, Very Negative) using **Plotly** for interactive visualization.
 
-Based on the sentiment analysis, the app recommends whether the product is likely a good purchase.
-📁 Excel File Upload:
+5. **⭐ Top Positive and Negative Reviews**:
+   - Highlights the top 2 positive and negative reviews to give a quick overview of product feedback.
 
-Users can upload Excel files containing reviews or ratings for sentiment analysis.
-🚀 Performance Optimizations:
+6. **✅ Final Recommendation**:
+   - Based on the sentiment analysis, the app provides a recommendation on whether the product is likely a good purchase.
 
-Caching mechanisms for faster processing of large datasets, improving performance without compromising accuracy.
-🛠 Version History
-🥇 Version 1: Basic Sentiment Analysis
-Initial Text Preprocessing.
-ML Model for basic positive, negative, or neutral classification.
-🥈 Version 2: Advanced NLP and Machine Learning
-Added Word Embeddings and TF-IDF.
-Improved with Random Forest and SVM models.
-🥉 Version 3: Sentiment Analysis with LSTM
-Transition to LSTM for enhanced sentiment prediction.
-Utilized word embeddings with sequential models.
-🏅 Version 4: BERT and Blockchain Integration
-BERT for state-of-the-art sentiment analysis.
-Integrated Blockchain User Authentication with Metamask.
-Performance optimizations with caching.
-🛠 Technologies Used
-Python: Backend and logic
-Streamlit: Interactive UI
-Transformers (Hugging Face): BERT model for sentiment analysis
-Blockchain (Metamask, Solidity): Secure decentralized login
-Plotly: For sentiment distribution graphs
-Pandas: Handling and processing Excel data
-OpenPyXL: Read/write Excel files
-Torch (PyTorch): Deep learning models
-📝 How to Use
-Login with Metamask 🔐:
+7. **📁 Excel File Upload**:
+   - Users can upload Excel files (.xlsx) containing product reviews or ratings, which the system will process for sentiment analysis.
 
-Use Metamask to securely log in.
-Upload Excel File 📁:
+8. **🚀 Performance Optimizations**:
+   - Optimized for fast processing of large datasets through caching mechanisms, allowing quicker sentiment analysis without compromising accuracy.
 
-Upload a .xlsx file containing reviews or ratings.
-Analyze Reviews 🧠:
+## 🛠 Version History
 
-View sentiment distribution and top reviews after uploading the file.
-Get Recommendations ✅:
+### 🥇 Version 1: Basic Sentiment Analysis
+- **Text Preprocessing**: Basic cleaning and sentiment analysis using simple lexical approaches.
+- **ML Model**: Logistic regression for classifying reviews into positive, negative, or neutral.
 
-Based on the analysis, the app will provide a product recommendation.
-Export Results 💾:
+### 🥈 Version 2: Advanced NLP and Machine Learning
+- **Word Embeddings and TF-IDF**: For text preprocessing.
+- **Machine Learning Models**: Implemented **Random Forest** and **SVM** for sentiment classification.
 
-Export sentiment predictions and visualizations for further analysis.
-⚙️ Installation and Setup
-Clone this repository:
+### 🥉 Version 3: Sentiment Analysis with LSTM
+- **LSTM (Long Short-Term Memory)**: Used deep learning to improve sentiment analysis accuracy by processing sequential data.
+- **Word Embeddings**: Combined with LSTM layers for capturing long-term dependencies in text.
 
-bash
-Copy code
-git clone https://github.com/chinmay0910/12_ProductReviewAnalysis
-Install the required dependencies:
+### 🏅 Version 4: BERT and Blockchain Integration
+- **BERT for Sentiment Analysis**: State-of-the-art NLP model for highly accurate and nuanced sentiment analysis.
+- **Blockchain-based User Authentication**: Secure decentralized login via **Metamask**.
+- **Performance Optimizations**: Caching and optimized model deployment for quick and efficient processing.
 
-bash
-Copy code
-pip install -r requirements.txt
-Run the application:
+## 🛠 Technologies Used
+- **Python**: Backend logic and sentiment analysis
+- **Streamlit**: Interactive web framework for the frontend
+- **Transformers (Hugging Face)**: For BERT model integration
+- **Blockchain (Metamask, Solidity)**: Secure user login via blockchain
+- **Plotly**: For interactive visualizations
+- **Pandas**: Data processing and manipulation
+- **OpenPyXL**: Read and write Excel files
+- **PyTorch**: For handling deep learning models like BERT
 
-bash
-Copy code
-streamlit run final_code.py
-Access the app at https://reviewsentimentanalysis.streamlit.app/.
+## 📝 How to Use
 
-🚀 Future Enhancements
-Support for additional languages through BERT fine-tuning.
-Improved visualizations with advanced analytics.
-More blockchain features to enhance security.
-🤝 Contributing
-Contributions are welcome! Fork the repository, create a branch, and submit a pull request. Follow the project’s coding guidelines.
+1. **Login with Metamask** 🔐:
+   - Ensure **Metamask** is installed and logged in. Use the Metamask login page to authenticate and access the app.
+
+2. **Upload an Excel File** 📁:
+   - Upload an Excel file (.xlsx) with product reviews or ratings. The file should contain a column labeled "Reviews" or "Ratings".
+
+3. **Analyze Reviews** 🧠:
+   - Once the file is uploaded, the app will process the reviews and display the sentiment distribution (positive, negative, etc.) and top positive/negative reviews.
+
+4. **Get Recommendations** ✅:
+   - Based on sentiment analysis, the app will provide a recommendation on whether the product is likely a good purchase.
+
+5. **Export Results** 💾:
+   - You can export the sentiment predictions and visualizations for further analysis.
+
+## ⚙️ Installation and Setup
+
+1. Clone the repository to your local machine:
+    ```bash
+    git clone https://github.com/chinmay0910/12_ProductReviewAnalysis
+    ```
+
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Run the application:
+    ```bash
+    streamlit run final_code.py
+    ```
+
+4. Open the application in your browser at `http://localhost:8501/`.
+
+## 🌟 Future Enhancements
+- **Multilingual Support**: Extend support for other languages by fine-tuning the BERT model for different language datasets.
+- **Advanced Analytics**: Improve visualizations with more detailed insights and interactive charts.
+- **Enhanced Blockchain Integration**: Add more decentralized features for increased user privacy and security.
+
+## 🤝 Contributing
+We welcome contributions! If you'd like to contribute:
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Submit a pull request.
+
+Please ensure you follow the project's coding standards and guidelines.
+
+---
+
+**📌 License:**  
+This project is licensed under the MIT License - see the LICENSE file for details.
 
