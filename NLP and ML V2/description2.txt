@@ -1,0 +1,24 @@
+1. TF-IDF Text Vectorization
+What it is:
+TF-IDF (Term Frequency-Inverse Document Frequency) is a statistical measure used to evaluate how important a word is to a document in a collection or corpus.
+How it works:
+Term Frequency (TF): Measures how frequently a term occurs in a document.
+Inverse Document Frequency (IDF): Reduces the weight of terms that appear frequently in many documents (common words).
+The product of TF and IDF assigns more weight to important, distinguishing words in a document.
+Benefit:
+Helps convert textual data into a numerical format, making it possible for machine learning algorithms to work with the data.
+2. Sentiment Analysis Using Logistic Regression
+What it is:
+Logistic Regression is a classification algorithm often used when the target variable is binary (like positive vs negative sentiment).
+How it works:
+Logistic Regression applies a weighted sum of input features (in this case, TF-IDF vectors) to classify the input text as belonging to one of two classes.
+It outputs probabilities that a given input belongs to a particular class.
+Benefit:
+Compared to simpler models like Naive Bayes, Logistic Regression allows for more refined decision boundaries, potentially improving classification performance.
+3. Comparison with Naive Bayes
+Naive Bayes:
+A probabilistic classifier that makes strong independence assumptions between features.
+Good for quick and simple models, but it can be less accurate because it assumes that all features (words) are independent of each other.
+Logistic Regression:
+More flexible than Naive Bayes, as it doesn’t rely on independence assumptions.
+This often leads to better performance in more complex datasets.
