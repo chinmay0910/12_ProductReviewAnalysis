@@ -93,7 +93,7 @@ The application integrates with a **blockchain-based user login** system to ensu
 ## Installation and Setup
 1. Clone this repository to your local machine:
     ```bash
-    git clone https://github.com/your-username/repo-name.git
+    git clone https://github.com/chinmay0910/12_ProductReviewAnalysis
     ```
 
 2. Install the required dependencies:
@@ -103,10 +103,10 @@ The application integrates with a **blockchain-based user login** system to ensu
 
 3. Run the application:
     ```bash
-    streamlit run app2.py
+    streamlit run final_code.py
     ```
 
-4. Access the app on `http://localhost:8501/`.
+4. Access the app on `https://reviewsentimentanalysis.streamlit.app/`.
 
 ## Future Enhancements
 - Expand support for other languages by fine-tuning the BERT model.
@@ -116,5 +116,3 @@ The application integrates with a **blockchain-based user login** system to ensu
 ## Contributing
 We welcome contributions from the community. If you'd like to contribute, please fork the repository, create a branch for your feature, and submit a pull request. Make sure to follow the project's coding guidelines.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
