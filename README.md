@@ -107,10 +107,5 @@ We welcome contributions! If you'd like to contribute:
 2. Create a new branch for your feature.
 3. Submit a pull request.
 
-Please ensure you follow the project's coding standards and guidelines.
 
----
-
-**📌 License:**  
-This project is licensed under the MIT License - see the LICENSE file for details.
 
